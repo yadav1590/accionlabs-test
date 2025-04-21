@@ -6,7 +6,7 @@ def find_common_elements(arr1, arr2):
 
     while i < len(arr1) and j < len(arr2):
         if arr1[i] == arr2[j]:
-            if arr1[i] != prev:  # avoid duplicates
+            if arr1[i] != prev:  
                 result.append(arr1[i])
                 prev = arr1[i]
             i += 1
@@ -19,7 +19,7 @@ def find_common_elements(arr1, arr2):
     return result
 
 
-# Example usage
+# given array number
 arr1 = [1, 2, 2, 3, 4, 5]
 arr2 = [2, 2, 3, 5, 6]
 
