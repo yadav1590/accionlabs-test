@@ -1,0 +1,30 @@
+manojyadav@Manojs-MacBook-Air tests % cat nginx.txt 
+192.168.1.10 - - [20/Apr/2025:12:34:56 +0000] "GET /index.html HTTP/1.1" 200 612 "-" "Mozilla/5.0"
+2025-04-20 17:50:06.982  INFO 1391779 --- [o-1001-exec-247] c.o.d.controller.OptionChainController   : IP- 2405:201:5c21:50d4:b858:96f0:1ff3:ad14, 2405:201:5c21:50d4:b858:96f0:1ff3:ad14 | Email- abv1@gmail.com: Inside fetchData in OptionChainServiceImpl. Fetching details for Symbol: NIFTY, expiry: 06-02-2025, fetchTime: 2025-02-04 11:07:06. Start time is: Sun Apr 20 17:50:06 IST 2025
+2025-04-20 17:50:06.995  INFO 1391779 --- [o-1001-exec-175] c.o.d.controller.OptionChainController   : IP- 223.185.63.165, 223.185.63.165 | Email- bca125@gmail.com: Inside fetchData in OptionChainServiceImpl. Fetching details for Symbol: NIFTY, expiry: 06-02-2025, fetchTime: 2025-02-04 09:16:40. Start time is: Sun Apr 20 17:50:06 IST 2025
+manojyadav@Manojs-MacBook-Air tests % 
+
+to check what are the user's email addresses using which they have logged-in using sed command
+
+manojyadav@Manojs-MacBook-Air tests % sed -n 's/.*Email- \([^:]*\):.*/\1/p' nginx.txt 
+abv1@gmail.com
+bca125@gmail.com
+manojyadav@Manojs-MacBook-Air tests
+
+Convert complete logging from lower case to upper case
+
+manojyadav@Manojs-MacBook-Air tests % tr "[:lower:]" "[:upper:]"  < nginx.txt 
+192.168.1.10 - - [20/APR/2025:12:34:56 +0000] "GET /INDEX.HTML HTTP/1.1" 200 612 "-" "MOZILLA/5.0"
+2025-04-20 17:50:06.982  INFO 1391779 --- [O-1001-EXEC-247] C.O.D.CONTROLLER.OPTIONCHAINCONTROLLER   : IP- 2405:201:5C21:50D4:B858:96F0:1FF3:AD14, 2405:201:5C21:50D4:B858:96F0:1FF3:AD14 | EMAIL- ABV1@GMAIL.COM: INSIDE FETCHDATA IN OPTIONCHAINSERVICEIMPL. FETCHING DETAILS FOR SYMBOL: NIFTY, EXPIRY: 06-02-2025, FETCHTIME: 2025-02-04 11:07:06. START TIME IS: SUN APR 20 17:50:06 IST 2025
+2025-04-20 17:50:06.995  INFO 1391779 --- [O-1001-EXEC-175] C.O.D.CONTROLLER.OPTIONCHAINCONTROLLER   : IP- 223.185.63.165, 223.185.63.165 | EMAIL- BCA125@GMAIL.COM: INSIDE FETCHDATA IN OPTIONCHAINSERVICEIMPL. FETCHING DETAILS FOR SYMBOL: NIFTY, EXPIRY: 06-02-2025, FETCHTIME: 2025-02-04 09:16:40. START TIME IS: SUN APR 20 17:50:06 IST 2025
+manojyadav@Manojs-MacBook-Air tests % 
+
+fetching logs from specific expiry using grep command
+
+manojyadav@Manojs-MacBook-Air tests % grep 'expiry: 06-02-2025' nginx.txt --color
+2025-04-20 17:50:06.982  INFO 1391779 --- [o-1001-exec-247] c.o.d.controller.OptionChainController   : IP- 2405:201:5c21:50d4:b858:96f0:1ff3:ad14, 2405:201:5c21:50d4:b858:96f0:1ff3:ad14 | Email- abv1@gmail.com: Inside fetchData in OptionChainServiceImpl. Fetching details for Symbol: NIFTY, expiry: 06-02-2025, fetchTime: 2025-02-04 11:07:06. Start time is: Sun Apr 20 17:50:06 IST 2025
+2025-04-20 17:50:06.995  INFO 1391779 --- [o-1001-exec-175] c.o.d.controller.OptionChainController   : IP- 223.185.63.165, 223.185.63.165 | Email- bca125@gmail.com: Inside fetchData in OptionChainServiceImpl. Fetching details for Symbol: NIFTY, expiry: 06-02-2025, fetchTime: 2025-02-04 09:16:40. Start time is: Sun Apr 20 17:50:06 IST 2025
+manojyadav@Manojs-MacBook-Air tests % 
+manojyadav@Manojs-MacBook-Air tests % 
+
+
