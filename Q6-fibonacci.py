@@ -26,10 +26,7 @@ class FibonacciSumCalculator:
 # Usage Example:
 
 if __name__ == "__main__":
-    # Instantiate the FibonacciSumCalculator
     calculator = FibonacciSumCalculator()
-    
-    # Generate Fibonacci numbers and sum the even ones
     calculator.generate_fibonacci()
     
     # Output the result
